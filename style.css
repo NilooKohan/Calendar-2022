@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-family: 'Yantramanav', sans-serif;
+}
+
+/* insgesamt den Text verkleinert */
+
+html{
+    font-size: 62,5%;
+}
+
+/* expand the container to the entire page*/
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-color:#E6D0CF;
+    color: white;  /*Schriftfarbe*/
+    
+    /*Platzierung des Kalenders auf der Seite */
+    display: flex;   
+    justify-content: center;
+    align-items: center;
+}
+
+/*Customize the Calendar*/
+
+.calendar {
+    width: 45rem;
+    height: 52rem;
+    background-color: #7A9997;
+    box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+}
+
+/* now I costumize the individual parts of the calendar : */
+
+/* upper box wit day current day: */
+
+.month {
+    width: 100%;
+    height: 12rem;
+    background-color:#C3E6E4;
+
+    /* creating a flexbox in order to place the elements horizontaly in a row
+    and also tp center them verticaly: */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* create some space on the left and on the right */
+
+    padding: 0 2rem;
+    text-align: center;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5); /* black Shadow for the text */
+
+}
+
+    /* styling the individual elements of the month:  */
+
+.month i{
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+.month h1{
+    font-size: 3rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    margin-bottom: 1rem;
+}
+
+.month p{
+    font-size:1.6rem;
+}
+
+.weekdays {
+    width: 100%;
+    height: 5rem;
+    padding: 0 0.4rem;
+    display: flex;
+    align-items: center;
+}
+
+.weekdays div {
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    
+    /* width of the whole calender is 45rem ; the Padding inside weekdays for left= 0.4rem and right= 0.4rem. We want to make the width for each div element 1/7 of the entire width. therefore we use the calc function calc(). 45-(2*04)= 44.2.  width: calc(42.2/7)*/
+    width: calc(44.2rem / 7); 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.days {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.2rem;
+}
+
+.days div {
+    font-size: 1.4rem;
+    margin: 0.3rem;
+    width: calc(40.2rem / 7);
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+    transition: background-color 0.2s;
+}
+
+/* hover effect once we hover over the days except the current day */
+.days div:hover:not(.today){
+    background-color: #6B8187;
+    border: 0.2rem solid #C3E6E4;
+    cursor: pointer
+}
+
+
+/* now i style the next and the previous days */
+
+.prev-date,
+.next-date {
+    opacity: 0.5;
+}
+
+.today {
+    background-color: #C3E6E4;
+}
